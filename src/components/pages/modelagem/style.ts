@@ -41,41 +41,36 @@ export const Body: Sx = {
 export const Canvas: Sx = {
   position: "relative",
   overflow: "hidden",
+  minHeight: 0,
   bgcolor: COLORS.gray[50],
   backgroundImage: `radial-gradient(${COLORS.gray[300]} 1px, transparent 1px)`,
   backgroundSize: "20px 20px",
 };
 
-export const Tools: Sx = {
+/** Container onde o bpmn-js desenha; as variáveis aplicam as cores do tema no editor. */
+export const BpmnContainer: Sx = {
   position: "absolute",
-  top: 24,
-  left: 16,
-  zIndex: 2,
-  display: "flex",
-  flexDirection: "column",
-  gap: 0.5,
-  p: 0.75,
-  borderRadius: 2,
-  bgcolor: COLORS.white,
-  border: `1px solid ${COLORS.gray[200]}`,
-  boxShadow: "0 2px 8px rgba(17,24,39,0.06)",
+  inset: 0,
+  "--palette-background-color": COLORS.white,
+  "--palette-border-color": COLORS.gray[200],
+  "--palette-entry-color": COLORS.gray[700],
+  "--palette-entry-hover-color": COLORS.primary[500],
+  "--palette-entry-selected-color": COLORS.primary[600],
+  "--palette-separator-color": COLORS.gray[200],
+  "--element-selected-outline-stroke-color": COLORS.primary[500],
+  "--element-selected-outline-secondary-stroke-color": COLORS.primary[100],
+  "--context-pad-entry-hover-background-color": COLORS.primary[50],
+  "& .djs-palette": {
+    top: 16,
+    left: 16,
+    borderRadius: "10px",
+    boxShadow: "0 2px 8px rgba(17,24,39,0.06)",
+    overflow: "hidden",
+  },
+  "& .djs-context-pad .entry": { borderRadius: "6px" },
+  // Marca d'água do bpmn.io: exigida pela licença, fica discreta no canto
+  "& .bjs-powered-by": { bottom: "12px !important", right: "12px !important", opacity: 0.6 },
 };
-
-export const Tarefa = (selecionada: boolean): Sx => ({
-  position: "absolute",
-  width: 136,
-  height: 72,
-  display: "grid",
-  placeItems: "center",
-  textAlign: "center",
-  px: 1.5,
-  fontSize: "0.8125rem",
-  borderRadius: 1.5,
-  bgcolor: COLORS.white,
-  cursor: "pointer",
-  border: `${selecionada ? 2 : 1}px solid ${selecionada ? COLORS.primary[500] : COLORS.gray[300]}`,
-  boxShadow: "0 2px 6px rgba(17,24,39,0.08)",
-});
 
 export const Zoom: Sx = {
   position: "absolute",
@@ -95,31 +90,19 @@ export const Zoom: Sx = {
 export const SugestaoFlutuante: Sx = {
   position: "absolute",
   bottom: 16,
-  left: { xs: 16, sm: 200 },
+  left: { xs: 16, sm: 230 },
   right: { xs: 16, sm: "auto" },
   zIndex: 2,
-  display: "flex",
+  display: { xs: "none", sm: "flex" },
   alignItems: "center",
   gap: 1.5,
   px: 1.5,
   py: 1,
-  maxWidth: 300,
+  maxWidth: 320,
   borderRadius: 2,
   bgcolor: COLORS.white,
   border: `1px solid ${COLORS.gray[200]}`,
   boxShadow: "0 6px 16px rgba(17,24,39,0.1)",
-};
-
-export const Minimap: Sx = {
-  position: "absolute",
-  bottom: 16,
-  right: 16,
-  width: 136,
-  height: 92,
-  borderRadius: 2,
-  bgcolor: COLORS.gray[200],
-  display: { xs: "none", sm: "grid" },
-  placeItems: "center",
 };
 
 export const Painel: Sx = {
@@ -133,6 +116,16 @@ export const Painel: Sx = {
 export const PainelSecao: Sx = { px: 2, py: 2, borderBottom: `1px solid ${COLORS.gray[200]}` };
 
 export const Label: Sx = { fontSize: "0.8125rem", color: COLORS.gray[600], mb: 0.75 };
+
+export const Atalho: Sx = {
+  display: "inline-block",
+  px: 0.75,
+  borderRadius: 0.75,
+  border: `1px solid ${COLORS.gray[300]}`,
+  bgcolor: COLORS.gray[50],
+  fontSize: "0.6875rem",
+  fontFamily: "ui-monospace, monospace",
+};
 
 export const StatusBar: Sx = {
   display: "flex",

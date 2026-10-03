@@ -1,16 +1,11 @@
-import { Box, Card, Chip, Typography } from "@mui/material";
-import { COLORS } from "@/styles/colors";
+"use client";
 
-const XML_EXEMPLO = `<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" id="Definitions_1">
-  <bpmn:process id="Credito_Imobiliario" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1" />
-    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_0v9x2k1" />
-    <bpmn:task id="Task_0v9x2k1" name="Analisar Documentação de Crédito">
-      <bpmn:documentation>Verificar validade do RG/CPF em até 48h</bpmn:documentation>
-    </bpmn:task>
-  </bpmn:process>
-</bpmn:definitions>`;
+import { useEffect, useState } from "react";
+import { Box, Button, Card, Chip, Typography } from "@mui/material";
+import ContentCopyRounded from "@mui/icons-material/ContentCopyRounded";
+import FileDownloadOutlined from "@mui/icons-material/FileDownloadOutlined";
+import { COLORS } from "@/styles/colors";
+import { useModelagemAcoes } from "../core/hooks/useModelagemAcoes";
 
 const VERSOES = [
   { versao: "v2.4.1", status: "Draft", autor: "João Duarte", data: "Hoje, 14:32" },
@@ -18,9 +13,32 @@ const VERSOES = [
   { versao: "v2.3.0", status: "Arquivada", autor: "Carlos Mendes", data: "02/03/2024" },
 ];
 
+/** XML BPMN gerado a partir do diagrama atual (somente leitura). */
 export function XmlView() {
+  const { obterXml, baixarArquivo } = useModelagemAcoes();
+  const [xml, setXml] = useState("");
+  const [copiado, setCopiado] = useState(false);
+
+  useEffect(() => {
+    obterXml().then(setXml);
+  }, [obterXml]);
+
+  const copiar = async () => {
+    await navigator.clipboard.writeText(xml);
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 1500);
+  };
+
   return (
-    <Box sx={{ p: 3, overflow: "auto", bgcolor: COLORS.gray[50] }}>
+    <Box sx={{ p: 3, overflow: "auto", bgcolor: COLORS.gray[50], minHeight: 0 }}>
+      <Box sx={{ display: "flex", gap: 1, mb: 1.5, justifyContent: "flex-end" }}>
+        <Button size="small" variant="outlined" startIcon={<ContentCopyRounded />} onClick={copiar} disabled={!xml}>
+          {copiado ? "Copiado!" : "Copiar"}
+        </Button>
+        <Button size="small" variant="outlined" startIcon={<FileDownloadOutlined />} onClick={baixarArquivo} disabled={!xml}>
+          Baixar .bpmn
+        </Button>
+      </Box>
       <Box
         component="pre"
         sx={{
@@ -35,7 +53,7 @@ export function XmlView() {
           fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
         }}
       >
-        {XML_EXEMPLO}
+        {xml || "Carregando..."}
       </Box>
     </Box>
   );
@@ -43,7 +61,7 @@ export function XmlView() {
 
 export function VersoesView() {
   return (
-    <Box sx={{ p: 3, overflow: "auto", bgcolor: COLORS.gray[50] }}>
+    <Box sx={{ p: 3, overflow: "auto", bgcolor: COLORS.gray[50], minHeight: 0 }}>
       {VERSOES.map((v) => (
         <Card key={v.versao} sx={{ p: 2, mb: 1.5, borderRadius: 2, display: "flex", alignItems: "center", gap: 2 }}>
           <Chip size="small" label={v.versao} sx={{ fontFamily: "ui-monospace, monospace", bgcolor: COLORS.gray[100] }} />
