@@ -10,7 +10,7 @@ export const ResumoGrid: Sx = {
 
 export const ResumoCard: Sx = { p: 2.5, borderRadius: 2, display: "flex", justifyContent: "space-between", alignItems: "center" };
 
-export const ResumoValor: Sx = { fontFamily: "var(--font-jakarta)", fontSize: "1.5rem", fontWeight: 500 };
+export const ResumoValor: Sx = { fontFamily: "var(--font-space-grotesk)", fontSize: "1.5rem", fontWeight: 500 };
 
 export const FiltersBar: Sx = {
   p: 1.5,

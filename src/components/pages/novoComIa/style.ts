@@ -33,7 +33,7 @@ export const ContextoCard: Sx = {
 export const ImagemPlaceholder: Sx = {
   height: 170,
   borderRadius: 2,
-  background: `radial-gradient(circle at 30% 70%, ${COLORS.primary[500]} 0%, #1E2A33 45%, #0F172A 100%)`,
+  background: `radial-gradient(circle at 30% 70%, ${COLORS.primary[500]} 0%, ${COLORS.primary[900]} 45%, ${COLORS.primary[950]} 100%)`,
 };
 
 /* IA gerando */

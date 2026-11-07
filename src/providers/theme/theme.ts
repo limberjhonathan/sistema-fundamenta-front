@@ -1,9 +1,10 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
-import { COLORS } from "@/styles/colors";
+import { BRAND, COLORS } from "@/styles/colors";
 
-const headingFont = "var(--font-jakarta), var(--font-inter), sans-serif";
+// Identidade: Space Grotesk para títulos e destaques, Inter para textos e interface
+const headingFont = "var(--font-space-grotesk), var(--font-inter), sans-serif";
 
 export const theme = createTheme({
   palette: {
@@ -14,8 +15,8 @@ export const theme = createTheme({
       light: COLORS.primary[500],
       contrastText: COLORS.white,
     },
-    secondary: { main: COLORS.primary[500] },
-    success: { main: COLORS.accent.green, light: COLORS.accent.greenLight },
+    secondary: { main: BRAND.lime, dark: COLORS.accent.limeDark, contrastText: BRAND.dark },
+    success: { main: COLORS.accent.green, dark: COLORS.accent.greenDark, light: COLORS.accent.greenLight },
     warning: { main: COLORS.accent.orange, light: COLORS.accent.orangeLight },
     error: { main: COLORS.accent.red, light: COLORS.accent.redLight },
     background: { default: COLORS.gray[50], paper: COLORS.white },

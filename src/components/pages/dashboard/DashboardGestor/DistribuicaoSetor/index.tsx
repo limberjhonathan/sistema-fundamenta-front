@@ -6,7 +6,7 @@ import { mockDistribuicaoSetor } from "@/mocks/dashboard";
 import { COLORS } from "@/styles/colors";
 import * as S from "../style";
 
-const CORES = [COLORS.primary[700], COLORS.accent.green, COLORS.accent.orange, COLORS.primary[500]];
+const CORES = [COLORS.primary[700], COLORS.accent.green, COLORS.accent.orange, COLORS.accent.lime];
 
 export default function DistribuicaoSetor() {
   const total = mockDistribuicaoSetor.reduce((acc, s) => acc + s.value, 0);

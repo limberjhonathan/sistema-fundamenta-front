@@ -22,7 +22,7 @@ export const Banner: Sx = {
   mb: 3,
 };
 
-export const SectionTitle: Sx = { fontFamily: "var(--font-jakarta)", fontWeight: 600, fontSize: "1rem", mb: 1.5 };
+export const SectionTitle: Sx = { fontFamily: "var(--font-space-grotesk)", fontWeight: 600, fontSize: "1rem", mb: 1.5 };
 
 export const ListCard: Sx = { borderRadius: 2, mb: 3, overflow: "hidden" };
 

@@ -14,7 +14,7 @@ export default function ResumoFuncionario() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
             <Typography
               sx={{
-                fontFamily: "var(--font-jakarta)",
+                fontFamily: "var(--font-space-grotesk)",
                 fontSize: "1.375rem",
                 fontWeight: r.destaque ? 700 : 500,
                 color: r.destaque ? COLORS.accent.green : "text.primary",

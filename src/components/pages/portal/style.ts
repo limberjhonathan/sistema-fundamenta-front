@@ -6,7 +6,7 @@ export const Hero: Sx = {
   pt: 3,
   pb: 3.5,
   color: COLORS.white,
-  background: `linear-gradient(115deg, ${COLORS.primary[800]} 0%, ${COLORS.primary[600]} 55%, #1F6F78 75%, ${COLORS.primary[700]} 100%)`,
+  background: `linear-gradient(115deg, ${COLORS.primary[800]} 0%, ${COLORS.primary[600]} 55%, ${COLORS.primary[500]} 75%, ${COLORS.primary[700]} 100%)`,
 };
 
 export const HeroSearch: Sx = {

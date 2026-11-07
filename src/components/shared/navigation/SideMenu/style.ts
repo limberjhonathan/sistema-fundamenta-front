@@ -1,5 +1,5 @@
 import type { Sx } from "@/styles/sx";
-import { COLORS } from "@/styles/colors";
+import { BRAND, COLORS } from "@/styles/colors";
 
 export const SIDE_MENU_WIDTH = 240;
 
@@ -33,9 +33,9 @@ export const Item = (active: boolean): Sx => ({
   borderRadius: 1.5,
   gap: 1.25,
   color: active ? COLORS.white : "rgba(255,255,255,0.85)",
-  bgcolor: active ? "rgba(255,255,255,0.1)" : "transparent",
-  "&:hover": { bgcolor: "rgba(255,255,255,0.06)" },
-  "& svg": { fontSize: 18 },
+  bgcolor: active ? "rgba(22,168,120,0.22)" : "transparent",
+  "&:hover": { bgcolor: active ? "rgba(22,168,120,0.28)" : "rgba(255,255,255,0.06)" },
+  "& svg": { fontSize: 18, color: active ? BRAND.lime : "inherit" },
   "& .MuiListItemText-primary": { fontSize: "0.875rem", fontWeight: active ? 600 : 500 },
 });
 

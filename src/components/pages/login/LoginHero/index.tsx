@@ -2,7 +2,7 @@ import { Avatar, Box, Typography } from "@mui/material";
 import CheckCircleOutlineRounded from "@mui/icons-material/CheckCircleOutlineRounded";
 import StarRounded from "@mui/icons-material/StarRounded";
 import Logo from "@/components/Svg/Logo";
-import { COLORS } from "@/styles/colors";
+import { BRAND, COLORS } from "@/styles/colors";
 import * as S from "./style";
 
 const BENEFICIOS = ["Modelagem BPMN 2.0", "Gestão de riscos", "Assistente de IA", "Portal do conhecimento"];
@@ -11,7 +11,10 @@ export default function LoginHero() {
   return (
     <>
       <Box sx={S.Container}>
-        <Logo />
+        <Box>
+          <Logo size={40} />
+          <Typography sx={{ ...S.Slogan, mt: 1.5 }}>Processos conectados, resultados reais.</Typography>
+        </Box>
 
         <Box>
           <Typography variant="h1" sx={S.Title}>
@@ -28,8 +31,8 @@ export default function LoginHero() {
         <Box sx={S.Illustration}>
           <Box sx={S.Base("28%")} />
           <Box sx={S.Base("62%")} />
-          <Box sx={S.Pill("36%", "#A3D65C")} />
-          <Box sx={S.Pill("70%", "#8CC8DA")} />
+          <Box sx={S.Pill("36%", BRAND.lime)} />
+          <Box sx={S.Pill("70%", BRAND.green)} />
         </Box>
 
         <Box sx={S.Checks}>
@@ -59,15 +62,8 @@ export default function LoginHero() {
       </Box>
 
       <Box sx={S.MobileHero}>
-        <Box sx={{ p: 1, borderRadius: 2, bgcolor: "rgba(255,255,255,0.15)" }}>
-          <Logo showText={false} size={36} />
-        </Box>
-        <Typography variant="h3" sx={{ color: COLORS.white }}>
-          Fundamenta
-        </Typography>
-        <Typography sx={{ fontSize: "0.8125rem", maxWidth: 260, opacity: 0.85 }}>
-          Gestão de Processos Inteligente para Organizações de Alta Performance
-        </Typography>
+        <Logo size={48} />
+        <Typography sx={S.Slogan}>Processos conectados, resultados reais.</Typography>
       </Box>
     </>
   );

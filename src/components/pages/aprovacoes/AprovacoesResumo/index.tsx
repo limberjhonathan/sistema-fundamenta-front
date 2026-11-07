@@ -27,7 +27,7 @@ export default function AprovacoesResumo() {
             <Typography variant="overline" sx={{ color: COLORS.gray[700] }}>
               {i.titulo}
             </Typography>
-            <Typography sx={{ fontFamily: "var(--font-jakarta)", fontSize: "1.375rem", lineHeight: 1 }}>{i.valor}</Typography>
+            <Typography sx={{ fontFamily: "var(--font-space-grotesk)", fontSize: "1.375rem", lineHeight: 1 }}>{i.valor}</Typography>
           </Box>
         </Card>
       ))}

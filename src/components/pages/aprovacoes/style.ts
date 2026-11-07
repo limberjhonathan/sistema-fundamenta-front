@@ -30,7 +30,7 @@ export const AprovacaoCard: Sx = { p: 2.5, borderRadius: 2, display: "flex", fle
 
 export const Id: Sx = { fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", fontSize: "0.6875rem", color: COLORS.gray[500] };
 
-export const Titulo: Sx = { fontFamily: "var(--font-jakarta)", fontSize: "1.25rem", fontWeight: 600, lineHeight: 1.2, my: 1 };
+export const Titulo: Sx = { fontFamily: "var(--font-space-grotesk)", fontSize: "1.25rem", fontWeight: 600, lineHeight: 1.2, my: 1 };
 
 export const Versao: Sx = { height: 20, fontSize: "0.6875rem", borderRadius: 1, bgcolor: COLORS.white, border: `1px solid ${COLORS.gray[200]}` };
 

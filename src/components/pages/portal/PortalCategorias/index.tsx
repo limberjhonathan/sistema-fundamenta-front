@@ -22,7 +22,7 @@ export default function PortalCategorias() {
               <IconBox size={32} color={COLORS.primary[600]}>
                 {ICONES[i]}
               </IconBox>
-              <Typography sx={{ fontFamily: "var(--font-jakarta)", fontSize: "1.0625rem", fontWeight: 500 }}>{cat.nome}</Typography>
+              <Typography sx={{ fontFamily: "var(--font-space-grotesk)", fontSize: "1.0625rem", fontWeight: 500 }}>{cat.nome}</Typography>
             </Box>
             <Button size="small" endIcon={<ChevronRightRounded />} sx={{ fontWeight: 500 }}>
               Ver categoria completa
@@ -42,7 +42,7 @@ export default function PortalCategorias() {
                     />
                   )}
                 </Box>
-                <Typography sx={{ fontFamily: "var(--font-jakarta)", fontSize: "1.25rem", fontWeight: 500, lineHeight: 1.2, mb: 1 }}>
+                <Typography sx={{ fontFamily: "var(--font-space-grotesk)", fontSize: "1.25rem", fontWeight: 500, lineHeight: 1.2, mb: 1 }}>
                   {a.titulo}
                 </Typography>
                 <Typography

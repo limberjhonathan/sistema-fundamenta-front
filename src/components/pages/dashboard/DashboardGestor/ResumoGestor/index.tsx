@@ -26,7 +26,7 @@ export default function ResumoGestor() {
             <Box>
               <Typography sx={{ fontSize: "0.75rem", color: "text.secondary" }}>{item.titulo}</Typography>
               <Box sx={{ display: "flex", alignItems: "baseline", gap: 1 }}>
-                <Typography sx={{ fontFamily: "var(--font-jakarta)", fontSize: "1.375rem", fontWeight: 700 }}>
+                <Typography sx={{ fontFamily: "var(--font-space-grotesk)", fontSize: "1.375rem", fontWeight: 700 }}>
                   {item.valor}
                 </Typography>
                 <Typography sx={{ fontSize: "0.75rem", color: i === 0 ? COLORS.accent.greenDark : "text.secondary" }}>

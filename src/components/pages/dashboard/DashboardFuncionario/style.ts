@@ -29,7 +29,7 @@ export const Columns: Sx = {
 
 export const SectionHeader: Sx = { display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 };
 
-export const SectionTitle: Sx = { fontFamily: "var(--font-jakarta)", fontSize: "1.25rem", fontWeight: 500 };
+export const SectionTitle: Sx = { fontFamily: "var(--font-space-grotesk)", fontSize: "1.25rem", fontWeight: 500 };
 
 export const AtividadeItem: Sx = {
   display: "flex",

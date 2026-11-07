@@ -1,12 +1,16 @@
 import type { Sx } from "@/styles/sx";
-import { COLORS } from "@/styles/colors";
+import { BRAND, COLORS } from "@/styles/colors";
 import { mqShortDesktop, mqTablet } from "@/utils/mediaQuery";
 
 export const Container: Sx = {
   height: "100%",
   minHeight: 0,
   overflow: "hidden",
-  bgcolor: COLORS.primary[900],
+  bgcolor: BRAND.dark,
+  // Formas da identidade visual sobre o verde-escuro, como no hero do Figma
+  backgroundImage: `linear-gradient(rgba(28,36,17,0.35), rgba(28,36,17,0.35)), url(/brand/fundo-formas.png)`,
+  backgroundSize: "cover",
+  backgroundPosition: "right center",
   color: COLORS.white,
   px: 7,
   py: "clamp(24px, 5vh, 48px)",
@@ -33,7 +37,7 @@ export const Illustration: Sx = {
   borderRadius: 3,
   position: "relative",
   overflow: "hidden",
-  background: `linear-gradient(140deg, ${COLORS.gray[100]} 0%, ${COLORS.gray[300]} 100%)`,
+  background: `linear-gradient(140deg, ${BRAND.light} 0%, ${COLORS.gray[300]} 100%)`,
   boxShadow: "0 24px 48px rgba(0,0,0,0.35)",
 };
 
@@ -55,7 +59,7 @@ export const Base = (left: string): Sx => ({
   width: 110,
   height: 28,
   borderRadius: 1,
-  bgcolor: "#F08A4B",
+  bgcolor: BRAND.dark,
   transform: "skewX(-25deg)",
 });
 
@@ -90,6 +94,18 @@ export const MobileHero: Sx = {
     minHeight: "42dvh",
     px: 3,
     color: COLORS.white,
-    background: `linear-gradient(180deg, ${COLORS.primary[100]}55 0%, ${COLORS.primary[500]} 70%, ${COLORS.primary[600]} 100%)`,
+    bgcolor: BRAND.dark,
+    backgroundImage: `linear-gradient(rgba(28,36,17,0.35), rgba(28,36,17,0.35)), url(/brand/fundo-formas.png)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
+};
+
+export const Slogan: Sx = {
+  fontFamily: "var(--font-space-grotesk)",
+  fontSize: "0.8125rem",
+  letterSpacing: "0.04em",
+  textTransform: "uppercase",
+  color: BRAND.light,
+  opacity: 0.9,
 };

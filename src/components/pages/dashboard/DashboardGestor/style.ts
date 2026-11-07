@@ -15,7 +15,7 @@ export const KpiGrid: Sx = {
 };
 
 export const KpiTitle: Sx = {
-  fontFamily: "var(--font-jakarta)",
+  fontFamily: "var(--font-space-grotesk)",
   fontSize: "1.05rem",
   lineHeight: 1.15,
   fontWeight: 600,
@@ -23,7 +23,7 @@ export const KpiTitle: Sx = {
   color: COLORS.gray[600],
 };
 
-export const KpiValue: Sx = { fontFamily: "var(--font-jakarta)", fontSize: "1.375rem", fontWeight: 500, mt: 0.5 };
+export const KpiValue: Sx = { fontFamily: "var(--font-space-grotesk)", fontSize: "1.375rem", fontWeight: 500, mt: 0.5 };
 
 export const Row: Sx = {
   display: "grid",
