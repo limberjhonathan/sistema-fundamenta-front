@@ -1,5 +1,6 @@
 // Enquanto não há API, o diagrama fica salvo só no navegador de quem está editando.
-const CHAVE = "fundamenta:modelagem:xml";
+// v2: exemplo novo com raias. Diagramas salvos na chave antiga são ignorados.
+const CHAVE = "fundamenta:modelagem:xml:v2";
 
 export function lerDiagramaSalvo(): string | null {
   try {
