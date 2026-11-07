@@ -1,5 +1,5 @@
-import EmBreve from "@/components/shared/EmBreve";
+import UsuariosPage from "@/components/pages/usuarios";
 
 export default function Usuarios() {
-  return <EmBreve titulo="Usuários" subtitulo="Gerencie os usuários e seus acessos ao Fundamenta." />;
+  return <UsuariosPage />;
 }

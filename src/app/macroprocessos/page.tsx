@@ -1,5 +1,5 @@
-import EmBreve from "@/components/shared/EmBreve";
+import MacroprocessosPage from "@/components/pages/macroprocessos";
 
 export default function Macroprocessos() {
-  return <EmBreve titulo="Macroprocessos" subtitulo="Organize a cadeia de valor e os macroprocessos." />;
+  return <MacroprocessosPage />;
 }

@@ -51,7 +51,11 @@ Centralizar o ciclo de vida dos processos — da criação à consulta — e usa
 
 ### Administração
 
-- **Usuários, Departamentos, Macroprocessos, Permissões e IA e cotas** — áreas previstas para configurar a organização e controlar o uso da IA. *(Em construção.)*
+- **Usuários** — convite e edição de usuários, perfil de acesso, ativação/desativação (individual ou em lote) e uso das licenças do plano.
+- **Departamentos** — áreas da organização com gestor, centro de custo, colaboradores, processos e cobertura de mapeamento; painel de detalhes com processos e pessoas da área.
+- **Macroprocessos** — cadeia de valor (gestão, finalísticos e suporte), processos vinculados a cada macroprocesso, dono e nível de maturidade.
+- **Permissões** — matriz de ações (visualizar, criar, editar, excluir, aprovar) por módulo para cada perfil, com comparação entre perfis.
+- **IA e cotas** — consumo de créditos do plano, projeção do ciclo, consumo por recurso, cotas por departamento, maiores consumidores e regras de uso da IA.
 
 ## A IA no Fundamenta
 

@@ -1,5 +1,5 @@
-import EmBreve from "@/components/shared/EmBreve";
+import PermissoesPage from "@/components/pages/permissoes";
 
 export default function Permissoes() {
-  return <EmBreve titulo="Permissões" subtitulo="Defina perfis e permissões por módulo." />;
+  return <PermissoesPage />;
 }

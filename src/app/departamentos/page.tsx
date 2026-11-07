@@ -1,5 +1,5 @@
-import EmBreve from "@/components/shared/EmBreve";
+import DepartamentosPage from "@/components/pages/departamentos";
 
 export default function Departamentos() {
-  return <EmBreve titulo="Departamentos" subtitulo="Estruture os departamentos da organização." />;
+  return <DepartamentosPage />;
 }

@@ -1,5 +1,5 @@
-import EmBreve from "@/components/shared/EmBreve";
+import IaCotasPage from "@/components/pages/iaCotas";
 
 export default function IaECotas() {
-  return <EmBreve titulo="IA e cotas" subtitulo="Acompanhe o consumo de IA e configure as cotas por equipe." />;
+  return <IaCotasPage />;
 }
