@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
+import AnexoLista from "@/components/shared/AnexoLista";
 import { useNovoComIaStore } from "@/components/store/useNovoComIaStore";
 import { COLORS } from "@/styles/colors";
 import * as S from "../../style";
@@ -12,6 +13,7 @@ export default function EtapaRevisao() {
     { label: "Nome do processo", valor: dados.nome },
     { label: "Departamento", valor: dados.departamento },
     { label: "Descrição", valor: dados.descricao },
+    { label: "Anotações complementares", valor: dados.anotacoes },
     { label: "Objetivo", valor: dados.objetivo },
     { label: "Gatilho de início", valor: dados.gatilho },
     { label: "Sistemas", valor: dados.sistemas },
@@ -28,6 +30,15 @@ export default function EtapaRevisao() {
           </Typography>
         </Box>
       ))}
+
+      <Box>
+        <Typography sx={S.Label}>Material de apoio</Typography>
+        {dados.anexos.length ? (
+          <AnexoLista anexos={dados.anexos} semCabecalho />
+        ) : (
+          <Typography sx={{ fontSize: "0.875rem", color: COLORS.gray[400] }}>Nenhum arquivo enviado</Typography>
+        )}
+      </Box>
     </Box>
   );
 }

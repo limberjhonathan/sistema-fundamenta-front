@@ -5,6 +5,7 @@ import AutoAwesomeOutlined from "@mui/icons-material/AutoAwesomeOutlined";
 import BoltRounded from "@mui/icons-material/BoltRounded";
 import DescriptionOutlined from "@mui/icons-material/DescriptionOutlined";
 import TuneRounded from "@mui/icons-material/TuneRounded";
+import AttachFileRounded from "@mui/icons-material/AttachFileRounded";
 import CheckCircleOutlineRounded from "@mui/icons-material/CheckCircleOutlineRounded";
 import ArrowBackRounded from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRounded from "@mui/icons-material/ArrowForwardRounded";
@@ -12,8 +13,10 @@ import CustomContainer from "@/components/shared/CustomContainer";
 import PageTitle from "@/components/shared/PageTitle";
 import IconBox from "@/components/ui/IconBox";
 import { NovoComIaEtapa, NovoComIaView, useNovoComIaStore } from "@/components/store/useNovoComIaStore";
+import { AnexoStatus } from "@/enums";
 import { COLORS } from "@/styles/colors";
 import EtapaBasico from "./EtapaBasico";
+import EtapaMaterial from "./EtapaMaterial";
 import EtapaEstrategia from "./EtapaEstrategia";
 import EtapaRevisao from "./EtapaRevisao";
 import NovoComIaAside from "./NovoComIaAside";
@@ -21,8 +24,14 @@ import * as S from "../style";
 
 const ETAPAS = [
   { label: "Básico", icon: <DescriptionOutlined />, titulo: "1. Identidade do Processo", subtitulo: "Defina o nome e o escopo inicial da atividade." },
-  { label: "Estratégia", icon: <TuneRounded />, titulo: "2. Estratégia e Contexto", subtitulo: "Explique objetivo, gatilhos e sistemas envolvidos." },
-  { label: "Revisão", icon: <CheckCircleOutlineRounded />, titulo: "3. Revisão", subtitulo: "Confira os dados antes de a IA gerar o fluxo BPMN." },
+  {
+    label: "Material",
+    icon: <AttachFileRounded />,
+    titulo: "2. Material de Apoio",
+    subtitulo: "Envie vídeos, áudios, planilhas ou documentos para a IA ler como base.",
+  },
+  { label: "Estratégia", icon: <TuneRounded />, titulo: "3. Estratégia e Contexto", subtitulo: "Explique objetivo, gatilhos e sistemas envolvidos." },
+  { label: "Revisão", icon: <CheckCircleOutlineRounded />, titulo: "4. Revisão", subtitulo: "Confira os dados antes de a IA gerar o fluxo BPMN." },
 ];
 
 function StepIcon({ active, completed, icon }: StepIconProps) {
@@ -44,7 +53,11 @@ export default function NovoComIaForm() {
   const { etapa, setEtapa, setView, dados } = useNovoComIaStore();
   const atual = ETAPAS[etapa];
   const ultima = etapa === NovoComIaEtapa.Revisao;
-  const podeAvancar = etapa !== NovoComIaEtapa.Basico || (dados.nome.trim() && dados.descricao.trim());
+  const lendoAnexos = dados.anexos.some((a) => a.status === AnexoStatus.Enviando || a.status === AnexoStatus.Analisando);
+  const podeAvancar =
+    etapa === NovoComIaEtapa.Basico
+      ? Boolean(dados.nome.trim() && dados.descricao.trim())
+      : !(etapa === NovoComIaEtapa.Material && lendoAnexos);
 
   const avancar = () => (ultima ? setView(NovoComIaView.Gerando) : setEtapa(etapa + 1));
 
@@ -83,6 +96,7 @@ export default function NovoComIaForm() {
             </Box>
             <Box sx={{ p: 2.5 }}>
               {etapa === NovoComIaEtapa.Basico && <EtapaBasico />}
+              {etapa === NovoComIaEtapa.Material && <EtapaMaterial />}
               {etapa === NovoComIaEtapa.Estrategia && <EtapaEstrategia />}
               {etapa === NovoComIaEtapa.Revisao && <EtapaRevisao />}
             </Box>
@@ -94,7 +108,7 @@ export default function NovoComIaForm() {
               Voltar
             </Button>
             <Button variant="contained" endIcon={ultima ? <AutoAwesomeOutlined /> : <ArrowForwardRounded />} disabled={!podeAvancar} onClick={avancar} sx={{ px: 4 }}>
-              {ultima ? "Gerar Processo" : "Próximo"}
+              {ultima ? "Gerar Processo" : lendoAnexos && etapa === NovoComIaEtapa.Material ? "Aguardando leitura..." : "Próximo"}
             </Button>
           </Box>
         </Box>

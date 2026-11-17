@@ -14,6 +14,18 @@ export const FormCardHeader: Sx = { px: 2.5, py: 2, bgcolor: COLORS.gray[50], bo
 
 export const Label: Sx = { fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", color: COLORS.gray[700], mb: 0.75 };
 
+export const Opcional: Sx = {
+  px: 0.75,
+  py: "1px",
+  borderRadius: 999,
+  bgcolor: COLORS.gray[100],
+  color: COLORS.gray[500],
+  fontSize: "0.625rem",
+  fontWeight: 600,
+  textTransform: "uppercase",
+  letterSpacing: "0.04em",
+};
+
 export const FieldsGrid: Sx = { display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2, mb: 2 };
 
 export const Stepper: Sx = {
